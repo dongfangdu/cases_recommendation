@@ -1,0 +1,30 @@
+{"mappings":
+    {"properties":
+      {"docContent":
+        {"type":"text", "fields": {"keyword":{"type":"keyword","ignore_above":256}}},
+       "docId":
+        {"type":"text", "fields": {"keyword":{"type":"keyword","ignore_above":256}}},
+         "doc_name":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},
+       "legalBase":
+          {"properties":
+            {"Items":
+              {"properties":
+                {"legalContent":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},
+                 "legalName":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}}
+                }
+              },
+             "legalRuleName":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},
+            }
+          },
+       "relaInfo_appellor":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},
+       "relaInfo_caseType":{"type":"keyword", "index": true},
+       "relaInfo_court":{"type":"keyword", "index": true},
+       "relaInfo_docType":{"type":"keyword", "index": true},
+       "relaInfo_processType":{"type":"keyword", "index": true},
+       "relaInfo_reason":{"type":"keyword", "index": true},
+       "relaInfo_trialDate":{"type":"date", "format": "yyyy-MM-dd"},
+       "relaInfo_trialRound":{"type":"keyword", "index": true},
+       "schema_version":{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}},
+      }
+    }
+}

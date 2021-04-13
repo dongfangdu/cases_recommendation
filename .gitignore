@@ -1,0 +1,8 @@
+data/all_fj/
+data/demo/
+data/jiedai/
+data/jiedai_old/
+venv/
+lda_model/
+logs/
+src_wyd/

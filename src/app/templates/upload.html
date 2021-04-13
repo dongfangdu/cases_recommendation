@@ -1,0 +1,10 @@
+    <!DOCTYPE html>
+    <title>Upload File</title>
+    <h1>文本上传</h1>
+    <form method=post enctype=multipart/form-data>
+         <input type=file name=text multiple=multiple>
+         <input type=submit value=上传>
+    </form>
+    {% for name in text_li %}
+    <h3>{{ name }}!</h3>
+    {% endfor %}

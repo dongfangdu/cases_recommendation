@@ -1,0 +1,44 @@
+类案推送列表
+---
+tags:
+  - name: 类案推送
+security:
+  - basicAuth: []
+requestBody:
+  description: 搜索条件
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - docId
+        properties:
+          docId:
+            type: string
+            description: 文档唯一编号
+      examples:
+        1:
+          value:
+            docId:
+              "262c14dff32adb9c2c0fd71610941537"
+
+
+responses:
+  200:
+    description: 200：接口调用成功  400：接口调用失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            errcode:
+              type: str
+              description: 返回代码
+        examples:
+          200:
+            value:
+              errcode: "200"
+          400:
+            value:
+              errcode: "400"
+

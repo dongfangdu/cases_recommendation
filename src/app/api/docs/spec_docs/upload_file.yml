@@ -1,0 +1,52 @@
+上传文件列表
+---
+tags:
+  - name: 文件上传
+security:
+  - basicAuth: []
+requestBody:
+  description: 搜索条件
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          text:
+            type: string
+            format: binary
+
+responses:
+  200:
+    description: 200：上传成功  400：上传失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: list
+              description: 文件上传信息 其中docId：文件唯一编码，
+                           errcode：文件上传代码{203：上传成功 406：上传文件编码错误 407：上传失败}
+                           errmsg：上传详细信息
+            errcode:
+              type: str
+              description: 接口返回代码
+            errmsg:
+              type: str
+              description: 接口返回信息
+            stat:
+              type: dict
+              description: {all：上传总个数 err：上传错误个数 ok：上传成功个数}
+        examples:
+          200:
+            value:
+              data: [{"docId": "17e1524b7e274c7f67d72980fbc05ef7","errcode": "203","errmsg": "ad.txt 已上传过相同内容，将更新文件名"}]
+              errcode: "200"
+              errmsg: "上传成功"
+              stat: {"all": 1, "err": 0, "ok": 1}
+          400:
+            value:
+              data: []
+              errcode: "400"
+              errmsg: "上传失败"
+              stat: {}

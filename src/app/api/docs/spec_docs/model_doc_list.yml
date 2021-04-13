@@ -1,0 +1,62 @@
+模型文档列表
+---
+tags:
+  - name: 模型文档
+security:
+  - basicAuth: []
+parameters:
+  - in: query
+    name: page
+    schema:
+      type: integer
+    required: true
+    description: 页数
+  - in: query
+    name: per_page
+    schema:
+      type: integer
+    required: true
+    description: 每页篇数
+
+responses:
+  200:
+    description: 200：查询文书列表数据成功  403：参数不足  404：数据类型错误  405：数据库查询失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: dict
+              description: 数据信息
+            errcode:
+              type: str
+              description: 返回代码
+            errmsg:
+              type: str
+              description: 返回代码信息
+        examples:
+          200:
+            value:
+              data:
+                {"current_page":1,
+                "docsList":[{"docId":"5e0a0bf3-952c-4edd-b5e0-f7bad9ae8630", "doc_name":"大众汽车金融（中国）有限公司与王涛等金融借款合同纠纷一审民事判决书"},
+                             {"docId":"dc4cc1bf-3120-4221-80b0-ea4eca29e793", "doc_name":"陈海荣与胡斌、盛明瑞民间借贷纠纷一审民事判决书"}],
+                "total":2}
+              errcode: "200"
+              errmsg: "查询文书列表数据成功"
+          403:
+            value:
+              data: {}
+              errcode: "403"
+              errmsg: "参数不足"
+          404:
+            value:
+              data: {}
+              errcode: "404"
+              errmsg: "数据类型错误"
+          405:
+            value:
+              data: {}
+              errcode: "405"
+              errmsg: "数据库查询失败"

@@ -1,0 +1,43 @@
+模型文档详情列表
+---
+tags:
+  - name: 模型文档详情
+security:
+  - basicAuth: []
+parameters:
+  - in: path
+    name: docId
+    schema:
+      type: string
+    required: true
+    description: 文档唯一编号
+
+
+responses:
+  200:
+    description: 200：查询文书详情数据成功  400：文档不存在，查询失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              type: dict
+              description: 案件ID列表
+            errcode:
+              type: str
+              description: 返回代码
+            errmsg:
+              type: str
+              description: 返回代码信息
+        examples:
+          200:
+            value:
+              data: {"...": "..."}
+              errcode: "200"
+              errmsg: "查询文书详情数据成功"
+          400:
+            value:
+              data: {}
+              errcode: "400"
+              errmsg: "文档不存在，查询失败"

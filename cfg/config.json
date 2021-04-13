@@ -1,0 +1,31 @@
+{
+    "mainAddress": "192.168.106.170:27017",
+    "oplogFile": "/home/user/linjr/cases_recommendation/logs/oplog.timestamp",
+    "noDump": false,
+    "batchSize": 50,
+    "verbosity": 1,
+    "logging": {
+        "type": "file",
+        "format":"%(asctime)s [%(levelname)s] %(name)s:%(lineno)d - %(message)s",
+        "filename": "/home/user/linjr/cases_recommendation/logs/mongo-connector.log"
+    },
+    "namespaces": {
+        "recommend.model_doc": {"rename": "recommend._doc", "excludeFields":
+        ["relaInfo", "sentList", "sentParaIndex", "clauseList", "clauseSentIndex",
+            "paraSentIndex", "elemParaIndex", "paraHeaderList", "paraTailList", "paraAppendixList",
+            "paraClauseIndex", "roleInfo", "sentDict", "clauDict", "sentSmpDict", 
+			"clauSmpDict", "relaInfo_docCont", "sents_class", "sentLAC", "clauLAC"]}
+     },
+    "docManagers": [
+        {
+            "docManager": "elastic2_doc_manager",
+            "targetURL": "192.168.108.197:9200",
+            "bulkSize": 1000,
+            "autoCommitInterval": 5,
+            "uniqueKey": "_id",
+            "args": {
+               "clientOptions": {"timeout": 5000}
+            }
+        }
+    ]
+ }

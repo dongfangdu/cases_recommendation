@@ -1,0 +1,90 @@
+精确检索列表
+---
+tags:
+  - name: 精确检索
+security:
+  - basicAuth: []
+requestBody:
+  description: 搜索条件
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - element_dict
+        properties:
+          element_dict:
+            type: dict
+            description: 关键词字典
+      examples:
+        1:
+          value:
+            element_dict:
+                {"relaInfo_court.keyword": "北京市朝阳区人民法院",
+                "relaInfo_caseType.keyword": "民事案件",
+                "relaInfo_reason.keyword": "金融借款合同纠纷",
+                "relaInfo_trialRound.keyword": "一审",
+                "relaInfo_trialDate_start": "2013-02-09",
+                "relaInfo_trialDate_end": "2013-03-09",
+                "relaInfo_docType.keyword": "判决书",
+                "relaInfo_processType.keyword": "普通程序",
+                "mortgage.goods.keyword": "房产",
+                "pledge.goods.keyword": "汽车",
+                "delay_pay_start": 1000,
+                "delay_pay_end": 10000,
+                "daily_rate_start": 0.0001,
+                "daily_rate_end": 0.1,
+                "monthly_rate_start": 0.01,
+                "monthly_rate_end": 0.1,
+                "annual_rate_start": 0.01,
+                "annual_rate_end": 1 }
+            sort_element: ["relaInfo_court.keyword",
+                          "relaInfo_caseType.keyword",
+                          "relaInfo_reason.keyword",
+                          "relaInfo_trialRound.keyword",
+                          "relaInfo_docType.keyword",
+                          "relaInfo_processType.keyword",
+                          "mortgage.goods.keyword",
+                          "pledge.goods.keyword",
+                          "relaInfo_trialDate",
+                          "delay_pay.amount",
+                          "daily_rate.rate_float",
+                          "monthly_rate.rate_float",
+                          "annual_rate.rate_float"]
+            sort_sc: "asc"
+        2:
+          value:
+            element_dict:
+                {"relaInfo_reason.keyword": "金融借款合同纠纷",
+                "relaInfo_trialRound.keyword": "一审",
+                "relaInfo_trialDate_start": "2013-04-09",
+                "relaInfo_trialDate_end": "2013-06-09",
+                "relaInfo_docType.keyword": "判决书",
+                "relaInfo_processType.keyword": "普通程序"}
+            sort_element: ["relaInfo_court.keyword"]
+            sort_sc: "asc"
+
+responses:
+  200:
+    description: 209：精确检索成功  409：精确检索失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            docId_list:
+              type: list
+              description: 案件ID列表
+            errcode:
+              type: str
+              description: 返回代码
+        examples:
+          209:
+            value:
+              docId_list: ["5ee64d37c7ddc969865d8de7", "5ee64d29c7ddc969865d8abe"]
+              errcode: "209"
+          409:
+            value:
+              docId_list: []
+              errcode: "409"
+

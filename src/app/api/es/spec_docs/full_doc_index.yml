@@ -1,0 +1,69 @@
+全文检索列表
+---
+tags:
+  - name: 全文检索
+security:
+  - basicAuth: []
+requestBody:
+  description: 搜索条件
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - element_list
+        properties:
+          element_list:
+            type: list
+            description: 关键词列表
+      examples:
+        1:
+          value:
+            element_list:
+              ["大众汽车金融（中国）有限公司,王涛,李月兰", "委托代理人"]
+            sort_element: ["relaInfo_court.keyword",
+                          "relaInfo_caseType.keyword",
+                          "relaInfo_reason.keyword",
+                          "relaInfo_trialRound.keyword",
+                          "relaInfo_docType.keyword",
+                          "relaInfo_processType.keyword",
+                          "mortgage.goods.keyword",
+                          "pledge.goods.keyword",
+                          "relaInfo_trialDate",
+                          "delay_pay.amount",
+                          "daily_rate.rate_float",
+                          "monthly_rate.rate_float",
+                          "annual_rate.rate_float"]
+            sort_sc: "asc"
+        2:
+          value:
+            element_list:
+                ["中国银行股份有限公司安徽省分行", "金融借款合同纠纷"]
+            sort_element: ["relaInfo_court.keyword"]
+            sort_sc: "asc"
+
+
+responses:
+  200:
+    description: 208：全文检索成功  408：全文检索失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            docId_list:
+              type: list
+              description: 案件ID列表
+            errcode:
+              type: str
+              description: 返回代码
+        examples:
+          208:
+            value:
+              docId_list: ["5ee64d29c7ddc969865d8abe", "5ee64d33c7ddc969865d8d06"]
+              errcode: "208"
+          408:
+            value:
+              docId_list: []
+              errcode: "408"
+

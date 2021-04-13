@@ -1,0 +1,17 @@
+2020-02-21 10:27:49,413 - train.log - INFO - Created model with fresh parameters.
+2020-02-21 10:27:50,807 - train.log - INFO - Load pre-trained embedding.
+2020-02-21 10:31:30,980 - train.log - INFO - Reading model parameters from ckpt_IDCNN/ner.ckpt
+2020-02-21 10:32:02,042 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:44:37,817 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:46:43,246 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:48:48,514 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:52:56,423 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:53:24,260 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:53:51,466 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:54:13,253 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 10:54:47,521 - train.log - INFO - Reading model parameters from ckpt_biLSTM/ner.ckpt
+2020-02-21 14:11:07,078 - train.log - INFO - Reading model parameters from ckpt_IDCNN/ner.ckpt
+2020-02-26 13:56:52,909 - train.log - INFO - Created model with fresh parameters.
+2020-02-26 13:56:54,252 - train.log - INFO - Load pre-trained embedding.
+2020-02-26 14:00:39,839 - train.log - INFO - Reading model parameters from ckpt_IDCNN/ner.ckpt
+2020-03-01 20:18:41,335 - train.log - INFO - Reading model parameters from ckpt_IDCNN/ner.ckpt

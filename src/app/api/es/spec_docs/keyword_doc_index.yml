@@ -1,0 +1,55 @@
+关键词检索列表
+---
+tags:
+  - name: 关键词检索
+security:
+  - basicAuth: []
+requestBody:
+  description: 搜索条件
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - element_list
+        properties:
+          element_list:
+            type: list
+            description: 关键词列表
+      examples:
+        1:
+          value:
+            element_list:
+              ["金融借款合同纠纷_借款利息_约定月利率超过10‰", "金融借款合同纠纷_借贷情况_借款金额500至1000万元"]
+            weight_list: [1,2]
+        2:
+          value:
+            element_list:
+              ["民间借贷纠纷", "金融借款合同纠纷_借款利息_约定月利率超过10‰", "金融借款合同纠纷_借贷情况_借款金额500至1000万元"]
+            weight_list: [1,1,2]
+
+
+responses:
+  200:
+    description: 208：关键词检索成功  408：关键词检索失败
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            docId_list:
+              type: list
+              description: 案件ID列表
+            errcode:
+              type: str
+              description: 返回代码
+        examples:
+          208:
+            value:
+              docId_list: ["5ee64d29c7ddc969865d8abe", "5ee64d33c7ddc969865d8d06"]
+              errcode: "208"
+          408:
+            value:
+              docId_list: []
+              errcode: "408"
+
